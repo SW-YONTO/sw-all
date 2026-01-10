@@ -302,6 +302,16 @@ function createNewBlock(type) {
             block.classList.add('calendar-block');
             content = createCalendarContent();
             break;
+        case 'clock':
+            block.classList.add('clock-block');
+            const clockId = 'clock_' + Date.now();
+            block.dataset.clockId = clockId;
+            content = `<h3 class="block-title" contenteditable="true">🕐 Clock</h3>
+                <div class="clock-display" id="${clockId}">
+                    <div class="clock-time">00:00:00</div>
+                    <div class="clock-date">Loading...</div>
+                </div>`;
+            break;
         case 'image':
             block.classList.add('image-block');
             content = `<img src="themes/${state.theme}/sidebar.png" class="block-image" alt="Image">`;
@@ -337,6 +347,7 @@ function createNewBlock(type) {
     
     if (type === 'todo') renderTodosForBlock(block);
     if (type === 'calendar') initCalendarNav(block);
+    if (type === 'clock') initClock(block);
 }
 
 function renderTodosForBlock(block) {
@@ -401,6 +412,27 @@ function initCalendarNav(block) {
         monthEl.textContent = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
         gridEl.innerHTML = generateCalendarGrid(currentDate.getFullYear(), currentDate.getMonth());
     });
+}
+
+// ===== Clock =====
+function initClock(block) {
+    const clockId = block.dataset.clockId;
+    const clockEl = document.getElementById(clockId);
+    if (!clockEl) return;
+    
+    function updateClock() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+        
+        const timeEl = clockEl.querySelector('.clock-time');
+        const dateEl = clockEl.querySelector('.clock-date');
+        if (timeEl) timeEl.textContent = timeStr;
+        if (dateEl) dateEl.textContent = dateStr;
+    }
+    
+    updateClock();
+    setInterval(updateClock, 1000);
 }
 
 // Utilities
