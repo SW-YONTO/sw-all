@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Green Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Banner -->
+    <div class="banner" id="banner">
+        <img src="themes/green/banner.png" alt="Banner" class="banner-img" id="bannerImg">
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title" contenteditable="true" id="pageTitle">🌿 Green Home</h1>
+            <div class="header-actions">
+                <div class="breadcrumb">🏠 Home ▾</div>
+                <div class="theme-selector">
+                    <span>🎨</span>
+                    <select id="themeSelect">
+                        <!-- Populated dynamically from THEME_TITLES in script.js -->
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Block Container -->
+        <div class="blocks-container" id="blocksContainer">
+            <div class="block-row" data-row-id="row1">
+                <!-- Left Column -->
+                <div class="block-column" data-col-id="col-left">
+                    <!-- Image Block -->
+                    <div class="block image-block" draggable="true" data-block-type="image">
+                        <div class="block-controls">
+                            <button class="ctrl-btn add-block-btn">+</button>
+                            <button class="ctrl-btn drag-block-btn">⁝⁝</button>
+                        </div>
+                        <div class="block-content">
+                            <img src="themes/green/sidebar.png" alt="Sidebar" class="block-image" id="sidebarImg">
+                        </div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+
+                    <!-- Courses Block -->
+                    <div class="block list-block" draggable="true" data-block-type="list">
+                        <div class="block-controls">
+                            <button class="ctrl-btn add-block-btn">+</button>
+                            <button class="ctrl-btn drag-block-btn">⁝⁝</button>
+                        </div>
+                        <div class="block-content">
+                            <h3 class="block-title" contenteditable="true">Courses</h3>
+                            <ul class="simple-list">
+                                <li><span class="emoji">🌱</span> <span contenteditable="true">Course 1</span></li>
+                                <li><span class="emoji">🌿</span> <span contenteditable="true">Course 2</span></li>
+                                <li><span class="emoji">🍀</span> <span contenteditable="true">Course 3</span></li>
+                                <li><span class="emoji">🌲</span> <span contenteditable="true">Course 4</span></li>
+                                <li><span class="emoji">🎋</span> <span contenteditable="true">Course 5</span></li>
+                                <li><span class="emoji">🎍</span> <span contenteditable="true">Course 6</span></li>
+                            </ul>
+                            <a href="#" class="see-more">See Course →</a>
+                        </div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Todo Grid -->
+                <div class="block-column todo-grid" data-col-id="col-right">
+                    <div class="block todo-block" draggable="true" data-block-type="todo" data-day="monday">
+                        <div class="block-controls"><button class="ctrl-btn add-block-btn">+</button><button class="ctrl-btn drag-block-btn">⁝⁝</button></div>
+                        <div class="block-content"><h3 class="block-title" contenteditable="true">🍓 Monday</h3><ul class="todo-list"></ul></div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                    <div class="block todo-block" draggable="true" data-block-type="todo" data-day="tuesday">
+                        <div class="block-controls"><button class="ctrl-btn add-block-btn">+</button><button class="ctrl-btn drag-block-btn">⁝⁝</button></div>
+                        <div class="block-content"><h3 class="block-title" contenteditable="true">🌿 Tuesday</h3><ul class="todo-list"></ul></div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                    <div class="block todo-block" draggable="true" data-block-type="todo" data-day="wednesday">
+                        <div class="block-controls"><button class="ctrl-btn add-block-btn">+</button><button class="ctrl-btn drag-block-btn">⁝⁝</button></div>
+                        <div class="block-content"><h3 class="block-title" contenteditable="true">🍀 Wednesday</h3><ul class="todo-list"></ul></div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                    <div class="block todo-block" draggable="true" data-block-type="todo" data-day="thursday">
+                        <div class="block-controls"><button class="ctrl-btn add-block-btn">+</button><button class="ctrl-btn drag-block-btn">⁝⁝</button></div>
+                        <div class="block-content"><h3 class="block-title" contenteditable="true">🌴 Thursday</h3><ul class="todo-list"></ul></div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                    <div class="block todo-block" draggable="true" data-block-type="todo" data-day="friday">
+                        <div class="block-controls"><button class="ctrl-btn add-block-btn">+</button><button class="ctrl-btn drag-block-btn">⁝⁝</button></div>
+                        <div class="block-content"><h3 class="block-title" contenteditable="true">🌻 Friday</h3><ul class="todo-list"></ul></div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                    <div class="block todo-block" draggable="true" data-block-type="todo" data-day="saturday">
+                        <div class="block-controls"><button class="ctrl-btn add-block-btn">+</button><button class="ctrl-btn drag-block-btn">⁝⁝</button></div>
+                        <div class="block-content"><h3 class="block-title" contenteditable="true">🌸 Saturday</h3><ul class="todo-list"></ul></div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                    <div class="block todo-block" draggable="true" data-block-type="todo" data-day="sunday">
+                        <div class="block-controls"><button class="ctrl-btn add-block-btn">+</button><button class="ctrl-btn drag-block-btn">⁝⁝</button></div>
+                        <div class="block-content"><h3 class="block-title" contenteditable="true">☀️ Sunday</h3><ul class="todo-list"></ul></div>
+                        <button class="delete-block-btn">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Block Button -->
+        <div class="add-block-container">
+            <button class="add-new-block-btn" id="addNewBlockBtn"><span>+</span> Add a block</button>
+        </div>
+    </main>
+
+    <!-- Block Menu -->
+    <div class="block-menu" id="blockMenu">
+        <div class="block-menu-content">
+            <input type="text" class="block-search" placeholder="Type to filter..." id="blockSearchInput">
+            <div class="block-menu-section">
+                <h4>Basic blocks</h4>
+                <div class="block-option" data-type="text"><span class="opt-icon">T</span> Text</div>
+                <div class="block-option" data-type="heading"><span class="opt-icon">H₁</span> Heading</div>
+                <div class="block-option" data-type="todo"><span class="opt-icon">☐</span> To-do list</div>
+                <div class="block-option" data-type="list"><span class="opt-icon">•</span> Bulleted list</div>
+                <div class="block-option" data-type="calendar"><span class="opt-icon">📅</span> Calendar</div>
+                <div class="block-option" data-type="image"><span class="opt-icon">🖼</span> Image</div>
+                <div class="block-option" data-type="quote"><span class="opt-icon">❝</span> Quote</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
